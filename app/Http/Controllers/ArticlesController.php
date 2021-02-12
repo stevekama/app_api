@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Article;
+use App\Http\Requests;
+use App\Http\Resources\Article as ArticleResource;
+
 class ArticlesController extends Controller
 {
     /**
@@ -14,17 +18,13 @@ class ArticlesController extends Controller
     public function index()
     {
         //
+        $articles = Article::paginate(10);
+
+        // Return the collection of articles as resource
+        return ArticleResource::collection($articles);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -47,18 +47,7 @@ class ArticlesController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
+    
     /**
      * Update the specified resource in storage.
      *
