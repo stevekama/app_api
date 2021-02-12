@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('articles', [ArticlesController::class, 'index']);
 
 // List single Article
-Route::get('article/{id}', 'ArticlesController@show');
+Route::get('article/{id}', [ArticlesController::class, 'show']);
 
 // New Article
 Route::post('article', 'ArticlesController@store');
