@@ -22,4 +22,13 @@ class Article extends JsonResource
             'body'=>$this->body
         ];
     }
+
+
+    public function with($request)
+    {
+        return [
+            'version'=>'1.0.0',
+            'author' => 'Stephen Kamau'
+        ];
+    }
 }

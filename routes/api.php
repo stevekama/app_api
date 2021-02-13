@@ -32,4 +32,4 @@ Route::post('article', 'ArticlesController@store');
 Route::put('article', 'ArticlesController@store');
 
 // delete Article
-Route::put('article', 'ArticlesController@destroy');
+Route::delete('article/{id}', [ArticlesController::class, 'destroy']);
