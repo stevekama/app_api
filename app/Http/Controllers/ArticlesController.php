@@ -18,7 +18,7 @@ class ArticlesController extends Controller
     public function index()
     {
         //
-        $articles = Article::paginate(10);
+        $articles = Article::orderBy('created_at', 'desc')->paginate(5);
 
         // Return the collection of articles as resource
         return ArticleResource::collection($articles);
@@ -61,18 +61,7 @@ class ArticlesController extends Controller
         // Return the singl article as a resource
         return new ArticleResource($article);
     }
-    
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
